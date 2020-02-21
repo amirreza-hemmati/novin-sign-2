@@ -1,22 +1,10 @@
 const imageVideoPlayer = document.querySelector(
   ".section-header-holder__image"
 );
-const videoHolder = document.querySelector(".section-header-holder__video");
-const video = document.querySelector(".section-header-holder__video_video");
-const videoTime = document.querySelector(".video-time");
 const itemList = document.querySelector(".section-main__item-list");
 
-imageVideoPlayer.addEventListener("click", () => {
-  imageVideoPlayer.classList.add("d-none");
-  videoHolder.classList.remove("d-none");
-  video.play();
-});
-
-video.addEventListener("timeupdate", () => {
-  if (video.duration === video.currentTime) {
-    imageVideoPlayer.classList.remove("d-none");
-    videoHolder.classList.add("d-none");
-  }
+$(".carousel").carousel({
+  interval: 2500
 });
 
 $(".section-main__tap > button").click(function() {
@@ -39,10 +27,44 @@ $(".section-main__tap > button").click(function() {
 
   for (let index = 0; index < itemList.children.length; index++) {
     if (itemList.children[index].id === tabIndex) {
-          $(itemList.children[index])
-            .siblings()
-            .addClass("d-none");
+      $(itemList.children[index])
+        .siblings()
+        .addClass("d-none");
       $(itemList.children[index]).removeClass("d-none");
     }
+  }
+});
+
+$(".course-chapter > .card-body").click(function() {
+  let timeClick = true;
+  if (timeClick) {
+    timeClick = false;
+    $(this)
+      .siblings()
+      .slideToggle(400, function() {
+        $(this).toggleClass("none-d");
+        timeClick = true;
+      });
+
+    $(this).toggleClass("card-muted");
+    $($($(this).children()[0]).children())
+      .last()
+      .toggleClass("text-pink");
+    // course-chpater__title
+
+    if (
+      $(this)
+        .siblings()
+        .hasClass("none-d")
+    ) {
+      $($($(this).children()[0]).children())
+        .first()
+        .text("-");
+      return;
+    }
+
+    $($($(this).children()[0]).children())
+      .first()
+      .text("+");
   }
 });
