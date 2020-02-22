@@ -171,6 +171,10 @@
   .section-main__tap {
     overflow: auto;
   }
+  
+  .section-main__aside{
+	  margin-bottom: 5.5rem !important;
+  }
 }
 
 @media (min-width: 576px) {
@@ -190,6 +194,10 @@
   .section-main__aside > div {
     top: 30px;
     position: sticky;
+  }
+  
+  .section-main__aside{
+	  margin-bottom: 0 !important;
   }
 }
 
