@@ -57,6 +57,14 @@
   position: center;
 }
 
+.product-fixed{
+	webkit-box-shadow: 0 -5px 50px rgba(107,66,132,.12);
+    box-shadow: 0 -5px 50px rgba(107,66,132,.12);
+	bottom: 0;
+	left: 0;
+	z-index: 15;
+}
+
 /* class helper */
 .rtl {
   direction: rtl;
