@@ -68,3 +68,23 @@ $(".course-chapter > .card-body").click(function() {
       .text("+");
   }
 });
+
+
+$(".btn-question_and_answer > button").click(function() {
+  if($(this).hasClass("btn-pink")){
+    return;
+  }
+
+  const data = $(this).attr("data-tab-quees");
+
+  $(this).siblings().toggleClass("btn-pink text-light btn-outline-secondary");
+  $(this).toggleClass("btn-pink text-light btn-outline-secondary");
+
+  const activeEl = $(".question_and_answer").children()[data];
+  
+  if(!$(activeEl).siblings().hasClass("d-none")){
+    $(activeEl).siblings().addClass("d-none");
+  }
+
+  $(activeEl).removeClass("d-none");
+});

@@ -154,6 +154,10 @@
   width: 25%;
 }
 
+.resize-none{
+  resize: none;
+}
+
 /* media layout page */
 @media (min-width: 0) {
   .section-main__tap {
